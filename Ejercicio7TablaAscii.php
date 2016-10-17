@@ -13,7 +13,12 @@ and open the template in the editor.
         <?php
         echo "<table border='1'>";
         for ($i = 32; $i < 128; $i++) {
-            echo "<tr><td>$i</td><td>" . chr($i) . "</td></tr>";
+            $a = 0;
+            while ($a <  ) {
+                $a++;
+                echo "<tr><td>C&oacutedigo;</td><td>Valor</td></tr>";
+                echo "<tr><td>$i</td><td>" . chr($i) . "</td></tr>";
+            }
         }
         echo "</table>";
         ?>
