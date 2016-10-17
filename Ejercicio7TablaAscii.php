@@ -14,11 +14,11 @@ and open the template in the editor.
         echo "<table border='1'>";
         for ($i = 32; $i < 128; $i++) {
             $a = 0;
-            while ($a <  ) {
-                $a++;
+            while ($a < 10) {
                 echo "<tr><td>C&oacutedigo;</td><td>Valor</td></tr>";
                 echo "<tr><td>$i</td><td>" . chr($i) . "</td></tr>";
             }
+            $a++;
         }
         echo "</table>";
         ?>
