@@ -18,7 +18,7 @@ class Pelicula {
   public $anio;
 
   /**
-   * 
+   * Metodo Mostrar formulario Peliculas
    */
   public function showFormAddPelicula() {
     ?>

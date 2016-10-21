@@ -29,9 +29,9 @@ switch ($accion) {
     $pel->showFormAddPelicula();
     break;
   case "procesarFormAnadirPelicula":
-      echo "aqui tendria que venir el codigo para añadir la peli a la bd";
-      break;
-      
+    echo "aqui tendria que venir el codigo para añadir la peli a la bd";
+    break;
+
 //			$pelicula = new Pelicula();
 //			$pelicula->addPelicula();
 //			break;

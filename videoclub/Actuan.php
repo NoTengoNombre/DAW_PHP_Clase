@@ -34,7 +34,7 @@ class Actuan {
     public $cod_persona;
 
     /**
-     * 
+     *  Objeto : realiza la conexion
      */
     public function __construct() {
         $mysqli = new mysqli("localhost", "root", "", "videoclubprueba");

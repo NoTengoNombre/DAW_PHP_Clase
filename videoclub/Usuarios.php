@@ -31,11 +31,11 @@ class usuarios {
    * ♥ Funciona muestra todos los resultados automaticamente
    */
   public function consultar_usuarios() {
-    $mysqli = new mysqli("localhost", "root", "", "videoclub");
+    $mysqli = new mysqli("localhost", "root", "", "videoclubprueba");
     if ($mysqli->connect_errno) {
       die("Error : No se establecido la conexion . " . $mysqli->connect_error);
     } else {
-      $resultado = $mysqli->query("SELECT * FROM usuarios ");
+      $resultado = $mysqli->query("SELECT * FROM usuarios");
       $numeroRegistros = $resultado->num_rows;
       echo "<b><br> Registros de la BD Usuarios </b>";
       if ($resultado->num_rows > 0) {
@@ -65,7 +65,7 @@ class usuarios {
    * ♥ Funciona inserta usuarios
    */
   public function anadir_usuarios() {
-    $mysqli = new mysqli("localhost", "root", "", "videoclub");
+    $mysqli = new mysqli("localhost", "root", "", "videoclubprueba");
     if ($mysqli->connect_errno) {
       die("Error : No se establecido la conexion . " . $mysqli->connect_error);
     }
@@ -91,7 +91,7 @@ class usuarios {
     $p->consultar_usuarios();
     echo "<br>";
     echo "<hr>";
-    $mysqli = new mysqli("localhost", "root", "", "videoclub");
+    $mysqli = new mysqli("localhost", "root", "", "videoclubprueba");
     $registro = $mysqli->query("UPDATE usuarios SET id = '" . $this->id . "' , user = '" . $this->user . "' , pass = '" . $this->pass . "' WHERE id = '" . $this->id . "' ;");
     if ($registro == true) {
       echo "<b><br> Consulta realizada </b>";
@@ -107,7 +107,7 @@ class usuarios {
    * ♥ Funciona
    */
   public function borrar_usuarios() {
-    $db = new mysqli("localhost", "root", "", "videoclub");
+    $db = new mysqli("localhost", "root", "", "videoclubprueba");
     if ($db->connect_errno) {
       die(" <br> Error : No se establecio la conexion . " . $db->connect_error);
     }
@@ -134,7 +134,7 @@ class usuarios {
    * @return type
    */
   public function consultar_return_borrar() {
-    $mysqli = new mysqli("localhost", "root", "", "videoclub");
+    $mysqli = new mysqli("localhost", "root", "", "videoclubprueba");
     $resultado = $mysqli->query("SELECT id FROM usuarios where id LIKE '" . $this->id . "' ; ")
             or die($mysqli->error . " en la linea " . (__LINE__ - 1));
     $numRegistros = $resultado->num_rows;
@@ -181,37 +181,38 @@ if (isset($_POST['enviar'])) {
 }
 ?>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title> Formulario para recoger datos de Usuarios </title>
-  </head>
-  <body>
-    <form name="form1" method="post" action ="<?php echo $_SERVER['PHP_SELF'] ?>">
-      <br>
-      Id : <input type="text" name="id" value="">
-      <br>
-      User :  <input type="text" name="user" value="">
-      <br>
-      Pass :  <input type="text" name="pass" value="">
-      <br>
-      <input type="submit" name="enviar" value="Enviar">
-    </form> 
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <title> Formulario para recoger datos de Usuarios </title>
+    </head>
+    <body>
+        <form name="form1" method="post" action ="<?php echo $_SERVER['PHP_SELF'] ?>">
+            <br>
+            Id : <input type="text" name="id" value="">
+            <br>
+            User :  <input type="text" name="user" value="">
+            <br>
+            Pass :  <input type="text" name="pass" value="">
+            <br>
+            <input type="submit" name="enviar" value="Enviar">
+        </form> 
+    </body>
 </html>
 <hr>
 
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title></title>
-  </head>
-  <body>
-    <form name="form1" method="post" action ="<?php echo $_SERVER['PHP_SELF'] ?>">
-      <br>
-      Borrar Id : <input type="text" name="idb" value="">
-      <br>
-      <input type="submit" name="enviar2" value="Enviar">
-    </form> 
-  </body>
+<!--Borrar usuario-->
+<!--<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <form name="form1" method="post" action ="<?php echo $_SERVER['PHP_SELF'] ?>">
+            <br>
+            Borrar Id : <input type="text" name="idb" value="">
+            <br>
+            <input type="submit" name="enviar2" value="Enviar">
+        </form> 
+    </body>
 </html>
-<hr>
+<hr>-->
