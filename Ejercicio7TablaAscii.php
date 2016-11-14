@@ -5,22 +5,22 @@ To change this template file, choose Tools |1 Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <meta charset = "UTF-8">
-        <title>hf</title>
-    </head>
-    <body>
-        <?php
-        echo "<table border='1'>";
-        for ($i = 32; $i < 128; $i++) {
-            $a = 0;
-            while ($a < 10) {
-                echo "<tr><td>C&oacutedigo;</td><td>Valor</td></tr>";
-                echo "<tr><td>$i</td><td>" . chr($i) . "</td></tr>";
-            }
-            $a++;
-        }
-        echo "</table>";
-        ?>
-    </body>
+  <head>
+    <meta charset = "UTF-8">
+    <title>hf</title>
+  </head>
+  <body>
+    <?php
+    echo "<table border='1'>";
+    for ($i = 32; $i < 128; $i++) {
+//      $a = 0;
+//      while ($a < 10) {
+//        echo "<tr><td>C&oacutedigo;</td><td>Valor</td></tr>";
+//        echo "<tr><td>$i</td><td>" . chr($i) . "</td></tr>";
+//      }
+//      $a++;
+    }
+    echo "</table>";
+    ?>
+  </body>
 </html>
