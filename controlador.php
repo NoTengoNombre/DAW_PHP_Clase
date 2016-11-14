@@ -1,5 +1,7 @@
 <?php
 
+//Aqui se van ejecutando todos los metodos de las distintas clases
+//Tambien muestra las vistas despues de cada accion
 //Paginas en general : cambia las pagians en paginas : direccionador
 // controlador llama a las vistas
 
@@ -9,6 +11,9 @@ include_once ("seguridad.php");
 
 class Controlador {
 
+  /**
+   * Metodo
+   */
   public static function control() {
     session_start();
 
