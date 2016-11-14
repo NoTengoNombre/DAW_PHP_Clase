@@ -12,12 +12,14 @@
  * @author admin
  */
 class Usuarios {
+
   public static function insertarUsuario() {
     $nombre = $_REQUEST["nombre"];
-    ...
-    $sql = "INSERT"
-            "
-    $result = $db->query($sql);
-    return $result;
+//    ...
+    $sql = "INSERT";
+//            "
+//    $result = $db->query($sql);
+//    return $result;
   }
+
 }
