@@ -1,4 +1,4 @@
-<h3>Login</h3>
+<h3>Alta de usuario</h3>
 <form action="index.php" method="GET">
   Usuario:
   <input type="text" name="usuario" />
@@ -6,7 +6,7 @@
   Contraseña:
   <input type="text" name="passwd" />
   <br/>
-  <input type="hidden" name="do" value="procesarFormularioLogin"/>
+  Aqui van el resto de campos
+  <input type="hidden" name="do" value="procesarFormularioAltaUsuario"/>
   <input type="submit"/>
 </form>
-<a href="index.php?do=mostrarFormularioAltaUsuario">Registrarse</a>

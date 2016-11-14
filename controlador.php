@@ -1,5 +1,8 @@
 <?php
 
+//Paginas en general : cambia las pagians en paginas : direccionador
+// controlador llama a las vistas
+
 include_once ("vista.php");
 include_once ("login.php");
 include_once ("seguridad.php");
@@ -7,37 +10,53 @@ include_once ("seguridad.php");
 class Controlador {
 
   public static function control() {
-
     session_start();
 
     if (!isset($_REQUEST["do"])) {
-      $accion = "mostrarformulariologin";
+      $accion = "mostrarFormularioLogin";
     } else {
       $accion = $_REQUEST["do"];
-      switch ($accion) {
+    }
+    
+    switch ($accion) {
 
         // ******************** LOGIN *************************
-
-        case "mostrarformulariologin":
+        case "mostrarFormularioLogin":
           Vista::show("login/formLogin");
           break;
 
-        case "checklogin":
+        case "procesarFormularioLogin":
           $loginOk = Login::checkLogin();
           if ($loginOk) {
             if (Seguridad::getTipoUsuario() == "admin") {
               Vista::show("menu/menuAdmin");
-            } else {
+            } 
+            if (Seguridad::getTipoUsuario() == "user") {
               Vista::show("menu/menuUser");
             }
           } else {
             Vista::show("login/errorLogin");
           }
           break;
+          
+          
+        case "mostrarFormularioAltaUsuario":
+          Vista::show("usuarios/formularioAltaUsuario");
+          break;
 
+        case "procesarFormularioAltaUsuario":
+          $result = Usuarios::insertarUsuario();
+          if ($result == 1) {
+              Vista::show("usuarios/insercionOk");
+          }
+          else {
+            Vista::show("usuarios/insercionError");
+          }
+          break;
+        
         case "cerrarsesion":
           Seguridad::cerrarSesion();
-          echo "La sesión se ha cerrado correctamente<br/>";
+          echo "La sesion se ha cerrado correctamente<br/>";
           echo "<a href='index.php'>Volver al inicio</a>";
           break;
         // ******************** MENÚS *************************
@@ -48,15 +67,15 @@ class Controlador {
             Vista::show("login/formLogin");
           }
           break;
-        case "showmenuuser":
+        case "showMenuUser":
           if (Seguridad::getTipoUsuario() == "user") {
             Vista::show("menu/menuUser");
           } else {
             Vista::show("login/formLogin");
           }
           break;
-        // ******************** PELÍCULAS *************************
-        case "formanadirpelicula":
+        // ******************** PELICULAS *************************
+        case "formAnadirPelicula":
           if (Seguridad::getTipoUsuario() == "admin") {
             Vista::show("peliculas/formAddpelicula");
           } else {
@@ -70,9 +89,11 @@ class Controlador {
             Vista::show("login/formLogin");
           }
           break;
+//          
+//          
 //        ...etc...
       }
     }
   }
 
-}
+
