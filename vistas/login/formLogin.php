@@ -1,5 +1,5 @@
 <h3>Login</h3>
-<form action="index.php" method="GET">
+<form action="index.php" method="get">
   Usuario:
   <input type="text" name="usuario" />
   <br/>

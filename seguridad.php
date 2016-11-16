@@ -49,7 +49,6 @@ class Seguridad {
     return $nombreusr;
   }
 
-  
   /**
    * Obtener url de la imagen del usuario
    * @return string
@@ -58,10 +57,11 @@ class Seguridad {
     if (isset($_SESSION["imagen_usuario"])) {
       $img = $_SESSION["imagen_usuario"];
     } else {
-      $img= "";
+      $img = "";
     }
     return $img;
   }
+
   /**
    * Fijar valor id_usuario
    * @param type $id
@@ -76,8 +76,10 @@ class Seguridad {
    */
   public static function setTipoUsuario($tipo) {
     switch ($tipo) {
-      case 0:  $_SESSION["tipo_usuario"] = "admin"; break;
-      case 1:  $_SESSION["tipo_usuario"] = "user"; break;
+      case 0: $_SESSION["tipo_usuario"] = "admin";
+        break;
+      case 1: $_SESSION["tipo_usuario"] = "user";
+        break;
       default: $_SESSION["tipo_usuario"] = "user";
     }
   }
@@ -98,7 +100,6 @@ class Seguridad {
     $_SESSION["imagen_usuario"] = $url;
   }
 
-  
   /**
    * Fijar todos los valores de usuarios
    * @param type $nombre
