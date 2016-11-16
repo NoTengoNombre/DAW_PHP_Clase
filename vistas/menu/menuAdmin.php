@@ -1,4 +1,6 @@
-Bioenvenido, <?php echo $data; ?><br/>
+<!--Se muestra la vista con toda las acciones del administrador 
+que ha sido llamado desde el controlador -->
+Bienvenido, <?php echo $data; ?><br/>
 Menu de administración<br/>
 <a href='index.php?do=formanadirpelicula'>Añadir película</a><br/>
 <a href='index.php?do=formborrarpelicula'>Borrar película</a><br/>

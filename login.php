@@ -18,6 +18,7 @@ class Login {
       die("Error al conectar con la DB: " . $conex->connect_error);
     }
 
+//    Al ser un select usa fetch_array
     $sql = "SELECT id_usuario, tipo_usuario, imagen_usuario FROM usuarios WHERE nombre_usuario = '$usuario' AND password = '$p'";
     echo $sql . "<br/>";
     $result = $conex->query($sql);
@@ -26,6 +27,7 @@ class Login {
 
     if ($result->num_rows > 0) {
       $fila = $result->fetch_array();
+//    Fija los datos del usuario
       Seguridad::setIdUsuario($fila["id_usuario"]);
       Seguridad::setNombreUsuario($usuario);
       Seguridad::setTipoUsuario($fila["tipo_usuario"]);
