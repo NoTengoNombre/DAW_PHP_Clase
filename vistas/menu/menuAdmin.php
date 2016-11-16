@@ -1,3 +1,4 @@
+Bioenvenido, <?php echo $data; ?><br/>
 Menu de administración<br/>
 <a href='index.php?do=formanadirpelicula'>Añadir película</a><br/>
 <a href='index.php?do=formborrarpelicula'>Borrar película</a><br/>

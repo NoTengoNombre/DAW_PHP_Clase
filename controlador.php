@@ -23,10 +23,11 @@ class Controlador {
     if (!isset($_REQUEST["do"])) { // si no esta fijado la accion del "do"
       $accion = "mostrarFormularioLogin"; // fuerzo a mostrar el formulario de login para acceder a la aplicacion
     } else { //sino entra en el switch
-      $accion = $_REQUEST["do"]; // "do" lleva asignado una accion 
+      $accion = $_REQUEST["do"]; // name="do" viene del formulario  : lleva asignado una accion mediante el value="..."
     }
 
-//    accion que se recibe desde los distintos formularios
+//  $accion :
+//  - almacena el name="do" y lleva implicito el valor de la $accion dentro del value="" - ej: "mostrarFormulario"
     switch ($accion) {
       // ******************** LOGIN *************************
       case "mostrarFormularioLogin": // muestra el formulario
@@ -49,15 +50,15 @@ class Controlador {
 
 
       case "mostrarFormularioAltaUsuario":
-        Vista::show("usuarios/formularioAltaUsuario");
+        Vista::show("usuarios/formularioAltaUsuarios");
         break;
 
       case "procesarFormularioAltaUsuario":
         $result = Usuarios::insertarUsuario();
         if ($result == 1) {
-          Vista::show("usuarios/insercionOk");
+          Vista::show("usuarios/insercionOk,menu/menuUser");
         } else {
-          Vista::show("usuarios/insercionError");
+          Vista::show("usuarios/insercionError,usuarios/formularioAltaUsuarios");
         }
         break;
 
@@ -69,14 +70,16 @@ class Controlador {
       // ******************** MENÚS *************************
       case "showmenuadmin":
         if (Seguridad::getTipoUsuario() == "admin") {
-          Vista::show("menu/menuAdmin");
+          $nombreUsuario = Seguridad::getNombreUsuario();
+          Vista::show("menu/menuAdmin", $nombreUsuario);
         } else {
           Vista::show("login/formLogin");
         }
         break;
       case "showMenuUser":
         if (Seguridad::getTipoUsuario() == "user") {
-          Vista::show("menu/menuUser");
+          $nombreUsuario = Seguridad::getNombreUsuario();
+          Vista::show("menu/menuUser", $nombreUsuario);
         } else {
           Vista::show("login/formLogin");
         }
