@@ -1,7 +1,5 @@
 <?php
 
- 
-
 /**
  * Parte del modelo 
  * 
@@ -21,12 +19,12 @@ class Usuarios {
     $fila = $result->fetch_array();
     $maxid = $fila["maxid"];
     $nuevoid = $maxid++;
-    
+
     $sql = "INSERT INTO usuarios(id, nombre, pass..) VALUES ($nuevoid, $nombre, ...)";
     $result = $db->query($sql);
     return $db->affected_rows;
-    
-    
+
+
     return $resultadoInsert;
 //    ...
     $sql = "INSERT";

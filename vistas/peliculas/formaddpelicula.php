@@ -1,6 +1,5 @@
-
-
-<!-- Crear formulario 
+<!-- 
+Crear formulario 
 Lo envia al index para realizar la inserccion
 tiene que estar en la parte de administrador
 -->
