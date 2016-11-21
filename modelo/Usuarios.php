@@ -20,7 +20,7 @@ class Usuarios {
     $maxid = $fila["maxid"];
     $nuevoid = $maxid++;
 
-    $sql = "INSERT INTO usuarios(id, nombre, pass..) VALUES ($nuevoid, $nombre, ...)";
+    $sql = "INSERT INTO usuarios(id, nombre, password) VALUES ($nuevoid, $nombre, ...)";
     $result = $db->query($sql);
     return $db->affected_rows;
 

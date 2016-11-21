@@ -14,17 +14,17 @@ class dbAbstract {
 // Constructor. Asigna las variables de instancia.
   function __construct() {
 // Hay que modificar el valor de estas variables para cambiar de servidor de BD
-    $dbName = "portal";
-    $dbHost = "localhost";
-    $dbUser = "root";
-    $dbPass = "";
-    $db = null;
+    $this->dbName = "portal";
+    $this->dbHost = "localhost";
+    $this->dbUser = "root";
+    $this->dbPass = "";
+    $this->db = null;
   }
 
 // Conecta con la BD. Devuelve 1 (ok) o 0 (error)
   public function conectar() {
-    $db = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
-    if ($db) {
+    $this->db = new mysqli($this->dbHost, $this->dbUser, $this->dbPass, $this->dbName);
+    if ($this->db) {
       return 1;
     } else {
       return 0;
@@ -33,8 +33,8 @@ class dbAbstract {
 
 // Cierra la conexión con la BD (si está abierta)
   public function desconectar() {
-    if ($db) {
-      $db->close();
+    if ($this->db) {
+      $$this->db->close();
     }
   }
 
@@ -43,8 +43,8 @@ class dbAbstract {
   public function consulta($sql) {
     $resultArray = null;
 
-    if ($db) {
-      $result = $db->query($sql);
+    if ($$this->db) {
+      $result = $$this->db->query($sql);
       if ($result) {
         $resultArray = $result->fetch_all();
       }
@@ -58,9 +58,9 @@ class dbAbstract {
   public function manipulacion($sql) {
     $result = 0;
 
-    if ($db) {
-      $db->query($sql);
-      $result = $db->affected_rows;
+    if ($$this->db) {
+      $$this->db->query($sql);
+      $result = $$this->db->affected_rows;
     }
 
     return $result;
