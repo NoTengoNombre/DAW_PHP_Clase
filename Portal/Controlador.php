@@ -1,5 +1,12 @@
-<?php
+<!--
+    @Created on : 22-nov-2016, 18:22:04
+    @Author     : RVS - N.F.N.D - Home
+    @Pag        :
+    @version    :
+    @TODO       :
+-->
 
+<?php
 //Aqui se van ejecutando todos los metodos de las distintas clases
 //Tambien muestra las vistas despues de cada accion
 //Paginas en general : cambia las pagians en paginas : direccionador
@@ -8,6 +15,7 @@
 include_once ("vista.php");
 include_once ("login.php");
 include_once ("seguridad.php");
+include_once ("modelo/peliculas.php");
 
 class Controlador {
 
@@ -18,6 +26,7 @@ class Controlador {
    */
   public static function control() {
     session_start(); // comienza/recibe los datos de la session
+
     if (!isset($_REQUEST["do"])) { // si no esta fijado la accion del "do"
       $accion = "mostrarFormularioLogin"; // fuerzo a mostrar el formulario de login para acceder a la aplicacion
     } else { //sino entra en el switch
@@ -42,10 +51,9 @@ class Controlador {
             Vista::show("menu/menuUser");
           }
         } else {
-          Vista::show("login/errorLogin");
+          Vista::show("login/errorLogin,login/formLogin");
         }
         break;
-
 
       case "mostrarFormularioAltaUsuario":
         Vista::show("usuarios/formularioAltaUsuarios");
@@ -73,6 +81,7 @@ class Controlador {
         } else {
           Vista::show("login/formLogin");
         }
+        
         break;
       case "showMenuUser":
         if (Seguridad::getTipoUsuario() == "user") {
@@ -83,9 +92,15 @@ class Controlador {
         }
         break;
       // ******************** PELICULAS *************************
+      case "buscarpelicula":
+        $p = new Peliculas();
+        $listaPeliculas = $p->getAllPeliculas();
+        Vista::show("peliculas/buscarPelicula", $listaPeliculas);
+        break;
+      
       case "formAnadirPelicula":
         if (Seguridad::getTipoUsuario() == "admin") {
-          Vista::show("peliculas/formAddpelicula");
+          Vista::show("peliculas/formAddPelicula");
         } else {
           Vista::show("login/formLogin");
         }

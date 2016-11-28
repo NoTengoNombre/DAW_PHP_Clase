@@ -1,14 +1,22 @@
+<!--
+    @Created on : 22-nov-2016, 18:22:04
+    @Author     : RVS - N.F.N.D - Home
+    @Pag        :
+    @version    :
+    @TODO       : Crear Formulario para registrar usuarios
+-->
+
 <h3>Alta de usuario</h3>
-<form action="index.php" method="get">
+<form method="get" action="../../Controlador.php">
   <label>  
-    Nombre Usuario:
+    Nombre Usuario :
   </label>
-  <input type="text" name="	nombre_usuario" value=""/>
+  <input type="text" name="nombre_usuario" value=""/>
   <br>
   <label>
     Fecha Nacimiento :
   </label>
-  <input type="text" name="fechaNacimiento" value="" />
+  <input type="text" name="fecha_nacimiento" value="" />
   <br>
   <label>
     Ciudad : 
@@ -36,16 +44,16 @@
   <input type="text" name="biografia" value="" />
   <br>
   <label>
-    Contraseña:
+    Contraseña :
   </label>
-  <input type="text" name="password" value=""/>
+  <input type="text" name="passwd" value=""/>
   <br>
+  <!--  
   <label>
-    Tipo Usuario :
+  Tipo Usuario :
   </label>
-  <input type="text" name="" value="" />
+  <input type="text" name="" value="" />-->
   <!-- Aqui van el resto de campos del formulario de alta de usuarios <br/> -->
   <input type="hidden" name="do" value="procesarFormularioAltaUsuario"/>
-  <br><br>
   <input type="submit"/>
 </form>
